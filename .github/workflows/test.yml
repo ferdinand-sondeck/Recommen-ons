@@ -21,7 +21,6 @@ jobs:
 
       - name: 📦 Installer les dépendances
         run: npm ci
-        working-directory: Recommen-ons
 
       - name: 🧪 Lancer les tests avec Jest
         run: npm test
