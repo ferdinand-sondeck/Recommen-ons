@@ -17,7 +17,6 @@ dist/
 build/
 
 # Ignorer les fichiers de lock si vous utilisez un autre gestionnaire de paquets
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 

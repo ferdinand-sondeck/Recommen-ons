@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>DevOps Ninja - Services</title>
+</head>
+<body>
+  <h1>Liste des services</h1>
+  <ul id="services-list"></ul>
+
+  <script>
+    fetch('/api/services')
+      .then(res => res.json())
+      .then(data => {
+        const ul = document.getElementById('services-list');
+        data.forEach(service => {
+          const li = document.createElement('li');
+          li.textContent = service.name;
+          ul.appendChild(li);
+        });
+      });
+  </script>
+</body>
+</html>
