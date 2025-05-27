@@ -1,0 +1,29 @@
+{
+  "name": "recommen-ons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferdinand-sondeck/Recommen-ons.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ferdinand-sondeck/Recommen-ons/issues"
+  },
+  "homepage": "https://github.com/ferdinand-sondeck/Recommen-ons#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.1"
+  }
+  
+}
