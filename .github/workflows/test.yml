@@ -24,4 +24,4 @@ jobs:
 
       - name: 🧪 Lancer les tests avec Jest
         run: npm test
-        working-directory: ./Recommen-ons
+        working-directory: Recommen-ons
