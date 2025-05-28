@@ -1,0 +1,33 @@
+name: 🐳 Build + Push + Scan Trivy
+
+on:
+  push:
+    branches: [main]
+
+env:
+  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/recommen-ons:latest
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Cloner le dépôt
+        uses: actions/checkout@v3
+
+      - name: 🐳 Connexion à GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: 🏗️ Build de l’image Docker
+        run: docker build -t $IMAGE_NAME .
+
+      - name: 🧪 Scan Trivy (vulnérabilités de sécurité)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ env.IMAGE_NAME }}
+          format: table
+          exit-code: 1
+          ignore-unfixed: true
+
+      - name: 📤 Push vers GHCR
+        run: docker push $IMAGE_NAME
